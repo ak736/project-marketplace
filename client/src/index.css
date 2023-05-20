@@ -41,3 +41,18 @@
 .custom-shape-divider-bottom-1681450176 .shape-fill {
   fill: #FFFFFF;
 }
+
+.fade {
+  transition: background-color 0.5s;
+}
+
+.fade:hover {
+  color: #fff;
+  background-color: #004369;
+}
+
+.fade:focus,
+.fade:active {
+  background-color: #004385;
+  transition: none;
+}

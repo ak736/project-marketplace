@@ -31,7 +31,9 @@ const ProjectCard = ({title,image,category,techStack,price,id}) => {
           </p>
         </div>
         <div>
-          <button onClick={()=>navigate(`/detail/${id}`)} className="bg-blue-200 text-sm px-3 py-2 rounded-md font-semibold">View More</button>
+          <button onClick={()=>navigate(`/detail/${id}`)} className="fade bg-blue-200 text-sm px-3 py-2 rounded-md font-semibold">
+            View More
+          </button>
         </div>
       </div>
     </div>

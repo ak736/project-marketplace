@@ -79,7 +79,7 @@ const MainNavBar = () => {
         {walletAddress && walletAddress.length > 0 ? (
           <div
             onClick={connectWallet}
-            className="flex items-center gap-2 border-2 border-blue-300 shadow-md px-4 py-1 rounded-md cursor-pointer"
+            className="fade flex items-center gap-2 border-2 border-blue-300 shadow-md px-4 py-1 rounded-md cursor-pointer"
           >
             <img src={MetaMaskLogo} alt="" className="h-8 w-8" />
             <p className="text-gray-500">Connected</p>
@@ -87,7 +87,7 @@ const MainNavBar = () => {
         ) : (
           <div
             onClick={connectWallet}
-            className="flex items-center gap-2 bg-primary px-4 py-1 shadow-md rounded-md cursor-pointer"
+            className="fade flex items-center gap-2 bg-primary px-4 py-1 shadow-md rounded-md cursor-pointer"
           >
             <p className="text-white">Login with </p>
             <img src={MetaMaskLogo} alt="" className="h-8 w-8" />
