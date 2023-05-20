@@ -7,6 +7,7 @@ import { getProjectByUser } from '../../services/projects/ProjectUserSlice';
 const ProjectsPage = () => {
 
   const projectList = useSelector((state) => state.projectUser);
+  const darkMode = useSelector((state) => state.darkMode);
   const { loading,  error, projects } = projectList;
   const dispatch = useDispatch()
 
@@ -15,8 +16,8 @@ const ProjectsPage = () => {
   },[dispatch])
 
   return (
-    <div>
-       <h2 className='font-semibold text-lg'>Your Projects!</h2>
+    <div className={`h-screen ${darkMode? `bg-gray-900`: ''}`}>
+       <h2 className={`font-semibold text-lg ${darkMode? `text-white`: `text-black`}`}>Your Projects!</h2>
 
       <div className='flex flex-wrap items-center justify-evenly gap-6 mt-6 '>
         {projects?.map(project =>

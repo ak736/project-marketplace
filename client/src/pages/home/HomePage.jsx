@@ -5,6 +5,7 @@ import { getAllProjects } from '../../services/projects/ProjectSlice';
 
 const HomePage = () => {
 
+  const darkMode = useSelector((state) => state.darkMode);
   const projectList = useSelector((state) => state.project);
   const { loading, allProjects, error, page, pages } = projectList;
   const dispatch = useDispatch()
@@ -15,8 +16,8 @@ const HomePage = () => {
   },[dispatch])
 
   return (
-    <div>
-       <h2 className='font-semibold text-lg'>Welcome to ProjectMart!</h2>
+    <div className={`h-screen ${darkMode? `bg-gray-900`: ``}`}>
+       <h2 className={`font-semibold text-lg ${darkMode? `text-white` : `text-black`}`}>Welcome to ProjectMart!</h2>
       <p className='text-sm text-gray-500'>Browse the projects</p>
 
       <div className='flex flex-wrap items-center justify-evenly gap-6 mt-6 '>

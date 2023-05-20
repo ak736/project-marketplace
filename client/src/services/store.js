@@ -20,6 +20,7 @@ import UserLoginSlice from "./user/UserLoginSlice"
 import UserProfileSlice from "./user/UserProfileSlice"
 import UserRegisterSlice from "./user/UserRegisterSlice"
 import UserUpdateSlice from "./user/UserUpdateSlice"
+import darkModeReducer from './projects/DarkModeSlice';
 
 export const store = configureStore({
     reducer:{
@@ -44,5 +45,6 @@ export const store = configureStore({
         "orderList":OrderListSlice,
         "orderListAdmin":OrderListAdminSlice,
         "orderDeliver":OrderDeliverSlice,
+        "darkMode": darkModeReducer,
     }
 })

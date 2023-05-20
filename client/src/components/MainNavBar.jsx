@@ -1,15 +1,28 @@
 import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { toggleDarkMode } from '../services/projects/DarkModeSlice';
 import UserLogo from "../assets/user.png";
 import MetaMaskLogo from "../assets/l1.png";
 
 const MainNavBar = () => {
   const [walletAddress, setWalletAddress] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  
+  const darkMode = useSelector((state) => state.darkMode);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     getCurrentWalletConnected();
     addWalletListener();
-  }, [walletAddress,isLoggedIn ]);
+    // Load user's preferred theme from local storage
+    
+  }, [walletAddress, isLoggedIn]);
+
+  
+
+  // const toggleDarkMode = () => {
+  //   dispatch(toggleDarkMode());
+  // };
 
   const connectWallet = async () => {
     if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
@@ -64,36 +77,48 @@ const MainNavBar = () => {
   };
 
   return (
-    <div className="flex justify-center h-16 px-10 py-6 bg-white shadow-md border border-b-neutral-200  ">
-      <div className="flex  items-center justify-between  w-full 2xl:max-w-6xl">
+    <div className={`flex justify-center h-16 px-10 py-6 ${darkMode ? "bg-gray-900 border-b-gray-800 border-gray-900 shadow-gray-800" : "bg-white"} shadow-md border border-b-neutral-200`}>
+      <div className="flex items-center justify-between w-full 2xl:max-w-6xl">
         <div className="flex items-center">
           <div className="mr-5">
             <img src={UserLogo} className="h-10 w-10" alt="" />
           </div>
           <div className="flex flex-col justify-center">
-            {/* <p className="text-sm text-gray-400 ">FULL STACK DEVELOPER</p> */}
-            <p className="hidden md:block font-semibold mt-[-2px]">{walletAddress && walletAddress.length>0?walletAddress:"Guest User"}</p>
+            <p className={`hidden md:block font-semibold mt-[-2px]  ${darkMode ? "text-white" : "text-black"}`}>
+              {walletAddress && walletAddress.length > 0 ? walletAddress : "Guest User"}
+            </p>
           </div>
         </div>
 
-        {walletAddress && walletAddress.length > 0 ? (
-          <div
-            onClick={connectWallet}
-            className="flex items-center gap-2 border-2 border-blue-300 shadow-md px-4 py-1 rounded-md cursor-pointer"
+        <div className="flex items-center gap-4">
+          <button
+            onClick={() => dispatch(toggleDarkMode())}
+            className={`focus:outline-none ${darkMode ? "text-white" : "text-gray-500"}`}
           >
-            <img src={MetaMaskLogo} alt="" className="h-8 w-8" />
-            <p className="text-gray-500">Connected</p>
-          </div>
-        ) : (
-          <div
-            onClick={connectWallet}
-            className="flex items-center gap-2 bg-primary px-4 py-1 shadow-md rounded-md cursor-pointer"
-          >
-            <p className="text-white">Login with </p>
-            <img src={MetaMaskLogo} alt="" className="h-8 w-8" />
-          </div>
-        )}
-
+            {darkMode ? (
+              <div className="text-[1.6em]">☀️</div>
+            ) : (
+              <div className="text-[1.6rem]">🌙</div>
+            )}
+          </button>
+          {walletAddress && walletAddress.length > 0 ? (
+            <div
+              onClick={connectWallet}
+              className="flex items-center gap-2 border-2 border-blue-300 dark:border-blue-500 shadow-md px-4 py-1 rounded-md cursor-pointer"
+            >
+              <img src={MetaMaskLogo} alt="" className="h-8 w-8" />
+              <p className="text-gray-500 dark:text-gray-300">Connected</p>
+            </div>
+          ) : (
+            <div
+              onClick={connectWallet}
+              className="flex items-center gap-2 bg-primary dark:bg-primary-dark px-4 py-1 shadow-md rounded-md cursor-pointer"
+            >
+              <p className="text-white dark:text-gray-200">Login with</p>
+              <img src={MetaMaskLogo} alt="" className="h-8 w-8" />
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
