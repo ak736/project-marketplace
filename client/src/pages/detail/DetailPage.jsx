@@ -56,7 +56,7 @@ const DetailPage = () => {
         <Link to={"https://coingate.com/"} target="_blank">
           <button
             // onClick={() => navigate("/detail/1")}
-            className="bg-blue-200 px-3 py-2 rounded-md font-semibold"
+            className="bg-blue-200 px-3 py-2 rounded-md font-semibold transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 hover:bg-primary"
           >
             Buy Project
           </button>
