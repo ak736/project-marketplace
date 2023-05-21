@@ -11,8 +11,17 @@ const userAuthSchema = Joi.object().keys({
     email: Joi.string().trim().email().required()
 })
 
+const userUpdateSchema = Joi.object().keys({
+    name: Joi.string().required(),
+    isAdmin: Joi.string().trim().optional(),
+    email: Joi.string().trim().email().required(),
+    password: Joi.string().trim().optional().min(7).max(14)
+})
+
+
 
 export {
     userRegistrationSchema,
-    userAuthSchema
+    userAuthSchema,
+    userUpdateSchema
 }
