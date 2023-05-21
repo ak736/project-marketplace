@@ -77,7 +77,7 @@ const MainNavBar = () => {
   };
 
   return (
-    <div className={`flex justify-center h-16 px-10 py-6 ${darkMode ? "bg-gray-900 border-b-gray-800 border-gray-900 shadow-gray-800" : "bg-white"} shadow-md border border-b-neutral-200`}>
+    <div className={`flex justify-center h-16 px-10 py-6 ${darkMode ? "bg-gray-900 border-b-gray-800 border-gray-900 shadow-gray-800" : "bg-white"} shadow-md border`}>
       <div className="flex items-center justify-between w-full 2xl:max-w-6xl">
         <div className="flex items-center">
           <div className="mr-5">
