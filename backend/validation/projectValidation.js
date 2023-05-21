@@ -1,18 +1,25 @@
-import JoiObjectId from "joi-objectid";
-import BaseJoi from "joi";
-const Joi = BaseJoi.extend(JoiObjectId);
+import Joi from "joi";
 
+const reviewUpdateSchema = Joi.object().keys({
+    name: Joi.string().required(),
+    rating: Joi.number().required(),
+    comment: Joi.string().required()
+})
 
 const projectCreateSchema = Joi.object().keys({
+    title: Joi.string().required(),
     name: Joi.string().required(),
     price: Joi.number().required(),
-    user: Joi.JoiObjectId().required(),
+    user:  Joi.string().regex(/^[0-9a-fA-F]{24}$/),
     image: Joi.string().required(),
     brand: Joi.string().required(),
     category: Joi.string().required(),
     countInStock: Joi.number().required(),
     numReviews: Joi.number().required(),
     description: Joi.string().required(),
+    techStack: Joi.string().required(),
+    features: Joi.string().required(),
+    rating: Joi.number().required()
 })
 
 const projectUpdateSchema = Joi.object().keys({
@@ -25,10 +32,7 @@ const projectUpdateSchema = Joi.object().keys({
     countInStock: Joi.number().required()
 })
 
-const reviewUpdateSchema = Joi.object().keys({
-    rating: Joi.number().required(),
-    comment: Joi.string().required()
-})
+
 
 export {
     projectCreateSchema,

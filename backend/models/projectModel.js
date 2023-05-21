@@ -35,7 +35,6 @@ const projectSchema = mongoose.Schema(
     },
     createdOn: {
       type: String,
-      required: true,
       default: Date.now(),
     },
     description: {

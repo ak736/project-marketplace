@@ -61,7 +61,7 @@ const deleteProject = asyncHandler(async (req, res) => {
 const createProject = asyncHandler(async (req, res) => {
   const payload = await projectCreateSchema.validateAsync(req.body);
   if (!payload.error) {
-    const { name, price, user, image, brand, category, countInStock, numReviews, description } = payload
+    const { name, price, user, image, brand, category, countInStock, numReviews, description, title, techStack } = payload
     const project = new Project({
       name,
       price,
@@ -71,7 +71,9 @@ const createProject = asyncHandler(async (req, res) => {
       category,
       countInStock,
       numReviews,
-      description
+      description,
+      title,
+      techStack
     });
     const createdProject = await project.save();
     res.status(201).json(createdProject);
