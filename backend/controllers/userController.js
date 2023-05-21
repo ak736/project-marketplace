@@ -1,6 +1,7 @@
 import asyncHandler from "express-async-handler";
 import User from "../models/userModel.js";
 import generateToken from "../utils/generateToken.js";
+import bcryptjs from "bcryptjs";
 
 // @desc Auth user & get token
 // @route POST /api/users/login
@@ -9,8 +10,8 @@ const authUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
 
   const user = await User.findOne({ email });
-
-  if (user && (await user.matchPassword(password))) {
+  const decyptPassword = await bcryptjs.compare(password, user.password);
+  if (user && decyptPassword) {
     res.json({
       _id: user._id,
       name: user.name,
@@ -113,7 +114,9 @@ const updateUserProfile = asyncHandler(async (req, res) => {
     user.name = req.body.name || user.name;
     user.email = req.body.email || user.email;
     if (req.body.password) {
-      user.password = req.body.password;
+      const bcryptSalt = await bcryptjs.genSalt(10);
+      const hashPassword = await bcryptjs.hash(req.body.password, bcryptSalt);
+      user.password = hashPassword;
     }
     const updatedUser = await user.save();
     res.json({
@@ -133,6 +136,7 @@ const updateUserProfile = asyncHandler(async (req, res) => {
 // @route POST /api/users
 // @access Public
 const registerUser = asyncHandler(async (req, res) => {
+  const bcryptSalt = await bcryptjs.genSalt(10);
   const { name, email, password } = req.body;
 
   const userExists = await User.findOne({ email });
@@ -142,10 +146,12 @@ const registerUser = asyncHandler(async (req, res) => {
     throw new Error("User already exists");
   }
 
+  const hashPassword = await bcryptjs.hash(password, bcryptSalt);
+
   const user = await User.create({
     name,
     email,
-    password,
+    password: hashPassword,
   });
 
   if (user) {
