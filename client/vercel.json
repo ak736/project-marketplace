@@ -1,8 +1,3 @@
 {
-  "redirects": [
-    {
-      "source": "/view-source",
-      "destination": "https://github.com/vercel/vercel"
-    }
-  ]
+  "routes": [{ "src": "/[^.]+", "dest": "/", "status": 200 }]
 }
