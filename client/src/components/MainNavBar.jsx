@@ -79,7 +79,11 @@ const MainNavBar = () => {
       <div className="Nav-right">
         <img className="notification" src={notifications}></img>
         <img className="notification" src={setting}></img>
-        <img className="notification" src={onbutton}></img>
+
+        <label class="toggle">
+          <input class="toggle-checkbox" type="checkbox" />
+          <div class="toggle-switch"></div>
+        </label>
       </div>
     </div>
   );
