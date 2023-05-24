@@ -3,7 +3,7 @@ import {
     MdOutlineDashboard,
     MdOutlineListAlt,
     MdOutlineWallet,
-    MdOutlineHome
+    MdOutlineHome,
   } from "react-icons/md";
   
   export const sidebarConstant = [
