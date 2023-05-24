@@ -3,7 +3,7 @@ import ProjectCard from '../../components/ProjectCard'
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllProjects } from '../../services/projects/ProjectSlice';
 
-const HomePage = () => {
+const HomePage = ({isDarkMode}) => {
 
   const projectList = useSelector((state) => state.project);
   const { loading, allProjects, error, page, pages } = projectList;
@@ -21,7 +21,7 @@ const HomePage = () => {
 
       <div className='flex flex-wrap items-center justify-evenly gap-6 mt-6 '>
         {allProjects?.map(project =>
-            <ProjectCard key={project._id} id={project._id} title={project.title} image={project.image} techStack={project.techStack} category={project.category} price={project.price} />
+            <ProjectCard key={project._id} id={project._id} title={project.title} image={project.image} techStack={project.techStack} category={project.category} price={project.price} isDarkMode={isDarkMode}/>
           )}
       </div>
     </div>

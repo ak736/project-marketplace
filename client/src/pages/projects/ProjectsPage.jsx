@@ -4,7 +4,7 @@ import { getAllProjects } from '../../services/projects/ProjectSlice';
 import MyProjectCard from '../../components/MyProjectCard';
 import { getProjectByUser } from '../../services/projects/ProjectUserSlice';
 
-const ProjectsPage = () => {
+const ProjectsPage = ({isDarkMode}) => {
 
   const projectList = useSelector((state) => state.projectUser);
   const { loading,  error, projects } = projectList;
@@ -20,7 +20,7 @@ const ProjectsPage = () => {
 
       <div className='flex flex-wrap items-center justify-evenly gap-6 mt-6 '>
         {projects?.map(project =>
-            <MyProjectCard key={project._id} id={project._id} title={project.title} image={project.image} techStack={project.techStack} category={project.category} price={project.price} />
+            <MyProjectCard key={project._id} id={project._id} title={project.title} image={project.image} techStack={project.techStack} category={project.category} price={project.price} isDarkMode={isDarkMode} />
           )}
       </div>
     </div>

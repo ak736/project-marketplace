@@ -1,15 +1,20 @@
 import React, { useEffect, useState } from "react";
 import UserLogo from "../assets/user.png";
 import MetaMaskLogo from "../assets/l1.png";
+import SunIcon from "../assets/sun.png";
+import MoonIcon from "../assets/moon.png";
 
-const MainNavBar = () => {
+
+const MainNavBar = ({ isDarkMode, toggleDarkMode }) => {
   const [walletAddress, setWalletAddress] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+
 
   useEffect(() => {
     getCurrentWalletConnected();
     addWalletListener();
-  }, [walletAddress,isLoggedIn ]);
+  }, [walletAddress, isLoggedIn]);
 
   const connectWallet = async () => {
     if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
@@ -62,9 +67,8 @@ const MainNavBar = () => {
       console.log("Please install MetaMask");
     }
   };
-
   return (
-    <div className="flex justify-center h-16 px-10 py-6 bg-white shadow-md border border-b-neutral-200  ">
+    <div className={`flex justify-center h-16 px-10 py-6 shadow-md border border-b-neutral-200`}>
       <div className="flex  items-center justify-between  w-full 2xl:max-w-6xl">
         <div className="flex items-center">
           <div className="mr-5">
@@ -72,9 +76,10 @@ const MainNavBar = () => {
           </div>
           <div className="flex flex-col justify-center">
             {/* <p className="text-sm text-gray-400 ">FULL STACK DEVELOPER</p> */}
-            <p className="hidden md:block font-semibold mt-[-2px]">{walletAddress && walletAddress.length>0?walletAddress:"Guest User"}</p>
+            <p className="hidden md:block font-semibold mt-[-2px]">{walletAddress && walletAddress.length > 0 ? walletAddress : "Guest User"}</p>
           </div>
         </div>
+
 
         {walletAddress && walletAddress.length > 0 ? (
           <div
@@ -95,6 +100,18 @@ const MainNavBar = () => {
         )}
 
       </div>
+
+      <button
+        className="flex items-center px-5 py-1 rounded-md cursor-pointer"
+        onClick={toggleDarkMode}
+      >
+        {isDarkMode ? (
+          <img src={MoonIcon} alt="Moon" className="h-7 w-7" />
+        ) : (
+          <img src={SunIcon} alt="Sun" className="h-7 w-7" />
+        )}
+      </button>
+
     </div>
   );
 };

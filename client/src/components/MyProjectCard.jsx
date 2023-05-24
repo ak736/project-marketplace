@@ -1,13 +1,13 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom'
 
-const MyProjectCard = ({title,image,category,techStack,price,id}) => {
+const MyProjectCard = ({title,image,category,techStack,price,id,isDarkMode}) => {
   const navigate = useNavigate()
   const techStackArray = techStack.split(",")
 
 
   return (
-    <div className="max-w-[250px] bg-blue-50 p-2 rounded-md">
+    <div className={`max-w-[250px] bg-blue-50 p-2 rounded-md project ${isDarkMode ? 'bg-black text-black' : ''}`}>
       <img
         src={image}
         alt="project"
