@@ -8,8 +8,6 @@ import {
   OrdersPage,
   DetailPage,
 } from "../pages";
-import Login from "../pages/login/login";
-
 
 export const routes = [
   {
