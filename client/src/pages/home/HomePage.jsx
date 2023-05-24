@@ -2,6 +2,8 @@ import React, { useEffect } from 'react'
 import ProjectCard from '../../components/ProjectCard'
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllProjects } from '../../services/projects/ProjectSlice';
+import Navsidecontext from '../../context/Navsidecontext';
+import { useContext } from 'react';
 
 const HomePage = () => {
 
@@ -9,9 +11,13 @@ const HomePage = () => {
   const { loading, allProjects, error, page, pages } = projectList;
   const dispatch = useDispatch()
   console.log(allProjects)
+  const context = useContext(Navsidecontext);
+  const { navhandle } = context;
+
 
   useEffect(()=>{
     dispatch(getAllProjects())
+    navhandle();
   },[dispatch])
 
   return (
