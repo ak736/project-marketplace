@@ -25,7 +25,7 @@ const LandingPage = () => {
                             <input className='h-10 px-4 rounded-2xl outline-none' type="password" name="password" id="password" placeholder='Enter your Password' />
                             </div>
                             <div className='flex justify-center mt-12'>
-                                <button onClick={(e)=>e.preventDefault()} className='px-6 py-2 rounded-3xl bg-black text-white' type='submit'>SIGN IN </button>
+                                <button onClick={(e)=>e.preventDefault()} className='px-6 py-2 rounded-3xl bg-black text-white transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 hover:bg-primary' type='submit'>SIGN IN </button>
                             </div>
                         </form>
                     </div>
