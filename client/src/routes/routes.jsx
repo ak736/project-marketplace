@@ -9,6 +9,8 @@ import {
   DetailPage,
 } from "../pages";
 
+import Login from "../pages/login/Login";
+
 export const routes = [
   {
     path: "/",
@@ -41,5 +43,9 @@ export const routes = [
   {
     path: "/landing",
     element: <LandingPage />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
   },
 ];
