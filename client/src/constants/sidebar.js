@@ -3,7 +3,8 @@ import {
     MdOutlineDashboard,
     MdOutlineListAlt,
     MdOutlineWallet,
-    MdOutlineHome
+    MdOutlineHome,
+    MdAccountCircle
   } from "react-icons/md";
   
   export const sidebarConstant = [
@@ -26,6 +27,11 @@ import {
       path:"/projects",
       name:"Projects",
       icon: MdOutlineLibraryBooks
+    },
+    {
+      path:"/login",
+      name:"Login",
+      icon: MdAccountCircle
     },
     // {
     //   path:"/cryptowallet",
