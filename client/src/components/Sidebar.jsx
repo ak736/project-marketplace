@@ -15,7 +15,7 @@ const Sidebar = ({ handleItemClick, activeItem }) => {
             onClick={() => handleItemClick(element.name)}
           >
             <element.icon size={20} />
-            <p>{element.name}</p>
+            <p className="navbar-p">{element.name}</p>
           </Link>
         ))}
       </div>
