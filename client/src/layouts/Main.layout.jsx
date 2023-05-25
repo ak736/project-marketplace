@@ -11,7 +11,7 @@ const MainLayout = ({ toggleDarkMode, isDarkMode }) => {
   return (
     <div>
       <div className="fixed top-0 left-0 w-full z-10">
-        <MainNavBar isDarkMode={isDarkMode} />
+        <MainNavBar isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
       </div>
       <div>
       <Sidebar activeItem={activeItem} handleItemClick={handleItemClick} toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />

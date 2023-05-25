@@ -22,19 +22,7 @@ const Sidebar = ({ handleItemClick, activeItem,toggleDarkMode,isDarkMode }) => {
             <p>{element.name}</p>
           </Link>
         ))}
-        <div className="flex items-center gap-1  rounded-lg py-4 px-2 mt-[-5px]">
-        <div className="m-1 mt-[-17px] cursor-pointer">
-        <input type="checkbox" id="darkmode-toggle" onClick={toggleDarkMode} />
-        <label
-          htmlFor="darkmode-toggle"
-          className={`${
-            isDarkMode ? "bg-black" : "bg-white"
-          } transition-colors duration-200`}
-        ></label></div>
-        <div className="transition-all duration-5">
-        {isDarkMode ? "Dark mode" : "Light mode"}
-        </div>
-        </div>
+        
       </div>
     </div>
   );

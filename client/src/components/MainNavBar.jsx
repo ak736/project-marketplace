@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import UserLogo from "../assets/user.png";
 import MetaMaskLogo from "../assets/l1.png";
-
-const MainNavBar = ({isDarkMode}) => {
+import Sun from "../assets/sun";
+import Moon from "../assets/moon";
+const MainNavBar = ({isDarkMode,toggleDarkMode}) => {
   const [walletAddress, setWalletAddress] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -74,6 +75,16 @@ const MainNavBar = ({isDarkMode}) => {
             {/* <p className="text-sm text-gray-400 ">FULL STACK DEVELOPER</p> */}
             <p className="hidden md:block font-semibold mt-[-2px]">{walletAddress && walletAddress.length>0?walletAddress:"Guest User"}</p>
           </div>
+        </div>
+        <div className="absolute right-60 flex items-center gap-1  rounded-lg py-4 px-2 ">
+        <div className="mt-[-25px] cursor-pointer">
+        <input className="w-0 h-0 invisible" type="checkbox" id="darkmode-toggle" onClick={toggleDarkMode} />
+        <label
+          htmlFor="darkmode-toggle"
+          className={`${
+            isDarkMode ? "bg-black" : "bg-white"
+          } transition-colors duration-200 `}
+        ><Sun /> <Moon /></label></div>
         </div>
 
         {walletAddress && walletAddress.length > 0 ? (

@@ -44,9 +44,10 @@
 
 
 label {
-  width: 25px; /* Updated width to 60px */
-  height: 15px;
+  width: 55px; /* Updated width to 55px */
+  height: 25px;
   position: relative;
+  left: 30px;
   display: block;
   background: #ebebeb;
   border-radius: 200px;
@@ -57,28 +58,24 @@ label {
 
 label:after {
   content: "";
-  width: 9px;
-  height: 9px;
+  width: 21px;
+  height: 21px;
   position: absolute;
-  top: 4px;
-  left: 4px;
+  top: 2px;
+  left: 2px;
   background: linear-gradient(180deg, #ffcc89, #d8860b);
   border-radius: 180px;
   box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
 }
 
-input {
-  width: 0;
-  height: 0;
-  visibility: hidden;
-}
+
 
 input:checked + label {
   background: #242424;
 }
 
 input:checked + label:after {
-  left: 21.5px; /* Updated left position to 38px */
+  left: 52.5px;
   transform: translateX(-100%);
   background: linear-gradient(180deg, #777, #3a3a3a);
 }
@@ -90,6 +87,13 @@ label, label:after {
 label:active:after { 
   width: 26px;
 }
+
+input:checked + label svg.sun {
+  stroke: #7e7e7e;
+}
+input:checked + label svg.moon {
+  fill:#fff;
+} 
 
 .light-mode {
   background-color: #ffffff;
