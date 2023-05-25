@@ -8,7 +8,7 @@ function App() {
     <div className="App">
       <MainLayout />
 
-      <div className="flex-1 md:ml-[20%] mt-14 p-10 overflow-y-auto">
+      <div className="flex-1 md:ml-[20%] sm:ml-[5%] mt-14 p-10 overflow-y-auto">
         <Routes>
           {routes.map((route) => (
             <Route key={route.path} path={route.path} element={route.element} />
