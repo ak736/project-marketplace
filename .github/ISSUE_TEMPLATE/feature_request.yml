@@ -1,12 +1,13 @@
-name: 🐛 Bug
-description: Report an issue to help improve the project.
-labels: ["🛠 goal: fix", "🚦 status: awaiting triage"]
+name: General Feature Request 💡
+description: Have a new idea/feature for LinkFree? Please suggest!
+title: "[FEATURE] <description>"
+labels: ["⭐ goal: addition", "🚦 status: awaiting triage"]
 body:
   - type: textarea
     id: description
     attributes:
       label: Description
-      description: A brief description of the question or issue, also include what you tried and what didn't work
+      description: A brief description of the enhancement you propose, also include what you tried and what worked.
     validations:
       required: true
   - type: textarea
@@ -20,6 +21,6 @@ body:
     id: extrainfo
     attributes:
       label: Additional information
-      description: Is there anything else we should know about this bug?
+      description: Is there anything else we should know about this idea?
     validations:
       required: false
