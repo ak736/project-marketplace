@@ -9,6 +9,7 @@ import projectRoutes from "./routes/projectRoutes.js"
 import userRoutes from "./routes/userRoutes.js"
 import orderRoutes from "./routes/orderRoutes.js"
 import uploadRoutes from "./routes/uploadRoutes.js"
+import addToCardRoutes from "./routes/addToCardRoutes.js"
 import { errorHandler, notFound } from "./middleware/errorMiddleware.js"
 
 dotenv.config()
@@ -25,10 +26,11 @@ app.use(express.json())
 
 
 
-app.use("/api/projects",projectRoutes)
-app.use("/api/users",userRoutes)
-app.use("/api/orders",orderRoutes)
-app.use("/api/upload",uploadRoutes)
+app.use("/api/projects",projectRoutes);
+app.use("/api/users",userRoutes);
+app.use("/api/orders",orderRoutes);
+app.use("/api/upload",uploadRoutes);
+app.use("/api/addToCard", addToCardRoutes);
 
 
 app.get("/api/config/paypal",(req,res)=>res.send(process.env.PAYPAL_CLIENT_ID))
