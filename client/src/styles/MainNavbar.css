@@ -1,0 +1,123 @@
+.MainNavbar-container {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    background-color: rgb(255, 255, 255);
+    padding-top: 7px;
+    padding-bottom: 5px;
+    align-items: center;
+    border-bottom: 2px solid rgba(224, 224, 224, 1);
+
+
+
+}
+
+.left {
+    display: flex;
+    gap: 5px;
+
+}
+
+.left img {
+    width: 43px;
+    height: 43px;
+    object-fit: cover;
+    border-radius: 50%;
+    background-color: rgb(244, 209, 216);
+}
+
+.left-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0px
+}
+
+.left-text :nth-child(1) {
+    color: rgba(36, 34, 32, 0.4);
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 22px;
+    margin-top: 1px;
+    margin-bottom: -3px;
+}
+
+.left-text :nth-child(2) {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    color: #242220;
+}
+
+.Nav-right {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.Nav-right :nth-child(2) {
+    /* height: 10%;
+    width: 10%; */
+}
+
+.toggle {
+    cursor: pointer;
+    display: inline-block;
+}
+
+.toggle-switch {
+    display: inline-block;
+    background: #ccc;
+    border-radius: 16px;
+    width: 44px;
+    height: 25px;
+    position: relative;
+    vertical-align: middle;
+    transition: background 0.25s;
+}
+
+.toggle-switch:before,
+.toggle-switch:after {
+    content: "";
+}
+
+.toggle-switch:before {
+    display: block;
+    background: linear-gradient(to bottom, #fff 0%, #eee 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+    width: 19px;
+    height: 19px;
+    position: absolute;
+    top: 2.5px;
+    left: 6px;
+    transition: left 0.25s;
+}
+
+.toggle:hover .toggle-switch:before {
+    background: linear-gradient(to bottom, #fff 0%, #fff 100%);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
+}
+
+.toggle-checkbox:checked+.toggle-switch {
+    background: #56c080;
+}
+
+.toggle-checkbox:checked+.toggle-switch:before {
+    left: 21px;
+}
+
+.toggle-checkbox {
+    position: absolute;
+    visibility: hidden;
+}
+
+.toggle-label {
+    margin-left: 5px;
+    position: relative;
+    top: 2px;
+}
