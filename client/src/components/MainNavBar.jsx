@@ -9,7 +9,7 @@ const MainNavBar = () => {
   useEffect(() => {
     getCurrentWalletConnected();
     addWalletListener();
-  }, [walletAddress,isLoggedIn ]);
+  }, [walletAddress, isLoggedIn]);
 
   const connectWallet = async () => {
     if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
@@ -70,9 +70,15 @@ const MainNavBar = () => {
           <div className="mr-5">
             <img src={UserLogo} className="h-10 w-10" alt="" />
           </div>
-          <div className="flex flex-col justify-center">
+          <div className="flex flex-col justify-center items-center">
             {/* <p className="text-sm text-gray-400 ">FULL STACK DEVELOPER</p> */}
-            <p className="hidden md:block font-semibold mt-[-2px]">{walletAddress && walletAddress.length>0?walletAddress:"Guest User"}</p>
+            <p className="font-semibold md:text-[15px] text-[10px] mt-[-2px]">
+              {walletAddress && walletAddress.length > 0
+                ? walletAddress.slice(0, 4) +
+                  "...." +
+                  walletAddress.slice(38, 42)
+                : "Guest User"}
+            </p>
           </div>
         </div>
 
@@ -93,7 +99,6 @@ const MainNavBar = () => {
             <img src={MetaMaskLogo} alt="" className="h-8 w-8" />
           </div>
         )}
-
       </div>
     </div>
   );
