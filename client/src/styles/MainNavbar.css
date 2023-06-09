@@ -1,0 +1,64 @@
+.MainNavbar-container {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    background-color: rgb(255, 255, 255);
+    padding-top: 7px;
+    padding-bottom: 5px;
+    align-items: center;
+    border-bottom: 2px solid rgba(224, 224, 224, 1);
+
+
+
+}
+
+.left {
+    display: flex;
+    gap: 5px;
+
+}
+
+.left img {
+    width: 43px;
+    height: 43px;
+    object-fit: cover;
+    border-radius: 50%;
+    background-color: rgb(244, 209, 216);
+}
+
+.left-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0px
+}
+
+.left-text :nth-child(1) {
+    color: rgba(36, 34, 32, 0.4);
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 22px;
+    margin-top: 1px;
+    margin-bottom: -3px;
+}
+
+.left-text :nth-child(2) {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    color: #242220;
+}
+
+.Nav-right {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.Nav-right :nth-child(2) {
+    /* height: 10%;
+    width: 10%; */
+}
