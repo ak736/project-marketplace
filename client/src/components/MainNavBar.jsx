@@ -15,7 +15,7 @@ const MainNavBar = ({ isDarkMode, toggleDarkMode }) => {
     getCurrentWalletConnected();
     addWalletListener();
   }, [walletAddress, isLoggedIn]);
-
+  
   const connectWallet = async () => {
     if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
       try {
@@ -68,15 +68,21 @@ const MainNavBar = ({ isDarkMode, toggleDarkMode }) => {
     }
   };
   return (
-    <div className={`flex justify-center h-16 px-10 py-6 shadow-md border border-b-neutral-200`}>
+    <div className={`flex justify-center h-16 px-10 py-6 ${isDarkMode ? 'bg-black' : 'bg-white'} shadow-md border border-b-neutral-200`}>
       <div className="flex  items-center justify-between  w-full 2xl:max-w-6xl">
         <div className="flex items-center">
           <div className="mr-5">
             <img src={UserLogo} className="h-10 w-10" alt="" />
           </div>
-          <div className="flex flex-col justify-center">
+          <div className="flex flex-col justify-center items-center">
             {/* <p className="text-sm text-gray-400 ">FULL STACK DEVELOPER</p> */}
-            <p className="hidden md:block font-semibold mt-[-2px]">{walletAddress && walletAddress.length > 0 ? walletAddress : "Guest User"}</p>
+            <p className="font-semibold md:text-[15px] text-[10px] mt-[-2px]">
+              {walletAddress && walletAddress.length > 0
+                ? walletAddress.slice(0, 4) +
+                  "...." +
+                  walletAddress.slice(38, 42)
+                : "Guest User"}
+            </p>
           </div>
         </div>
 
@@ -98,7 +104,6 @@ const MainNavBar = ({ isDarkMode, toggleDarkMode }) => {
             <img src={MetaMaskLogo} alt="" className="h-8 w-8" />
           </div>
         )}
-
       </div>
 
       <button

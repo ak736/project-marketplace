@@ -4,7 +4,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { getProjectById } from "../../services/projects/ProjectDetailSlice";
 import { MdBolt } from "react-icons/md";
 
-const DetailPage = () => {
+const DetailPage = ({isDarkMode}) => {
   const tags = ["React", "Three.js", "3D"];
   const {id} = useParams()
   const navigate = useNavigate();
@@ -42,11 +42,11 @@ const DetailPage = () => {
       <div className="flex  items-center mt-4 gap-2">
         <p>Tech Stack:</p>
         {projectInfo?.techStack?.split(',')?.map((tag) => (
-          <p className=" bg-blue-100 px-2 rounded-md">{tag}</p>
+          <p className= {`bg-blue-100 px-2 rounded-md ${isDarkMode ? 'bg-black text-black' : ''}`}>{tag}</p>
         ))}
       </div>
       
-      <div className="flex items-center justify-between  gap-20 mt-4 bg-blue-50 p-4 rounded-md">
+      <div className={`flex items-center justify-between  gap-20 mt-4 bg-blue-50 p-4 rounded-md ${isDarkMode ? 'bg-black text-black' : ''}`}>
         <div>
           <p>
             Price: <span className="font-semibold ">${projectInfo.price}</span>
