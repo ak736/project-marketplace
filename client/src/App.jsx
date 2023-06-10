@@ -12,7 +12,7 @@ function App() {
   
 
   return (
-    <div className={`App ${isDarkMode ? "dark" : ""} transition-transform`}>
+    <div className={`App ${isDarkMode ? "dark" : ""} transition-transform duration-75`}>
       <MainLayout />
 
       <div className={`flex-1 md:ml-[20%] mt-14 p-10 overflow-y-auto ${isDarkMode ? "bg-gray-900" : "bg-white"}`}>
