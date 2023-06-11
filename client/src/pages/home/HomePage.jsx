@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
-import ProjectCard from "../../components/ProjectCard";
-import { useDispatch, useSelector } from "react-redux";
-import { getAllProjects } from "../../services/projects/ProjectSlice";
+import React, { useEffect } from 'react'
+import ProjectCard from '../../components/ProjectCard'
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllProjects } from '../../services/projects/ProjectSlice';
 import { BsSearch } from "react-icons/bs";
-const HomePage = () => {
+const HomePage = ({isDarkMode}) => {
   const projectList = useSelector((state) => state.project);
   const { loading, allProjects, error, page, pages } = projectList;
   const [searchBar, setSearchBar] = React.useState("");
@@ -54,6 +54,7 @@ const HomePage = () => {
               techStack={project.techStack}
               category={project.category}
               price={project.price}
+              isDarkMode={isDarkMode}
             />
           ))}
         {searchBar !== "" &&
@@ -70,6 +71,7 @@ const HomePage = () => {
                 techStack={project.techStack}
                 category={project.category}
                 price={project.price}
+                isDarkMode={isDarkMode}
               />
             ))}
       </div>

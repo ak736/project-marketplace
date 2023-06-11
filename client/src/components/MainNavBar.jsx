@@ -1,16 +1,21 @@
 import React, { useEffect, useState } from "react";
 import UserLogo from "../assets/user.png";
 import MetaMaskLogo from "../assets/l1.png";
+import SunIcon from "../assets/sun.png";
+import MoonIcon from "../assets/moon.png";
 
-const MainNavBar = () => {
+
+const MainNavBar = ({ isDarkMode, toggleDarkMode }) => {
   const [walletAddress, setWalletAddress] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+
 
   useEffect(() => {
     getCurrentWalletConnected();
     addWalletListener();
   }, [walletAddress, isLoggedIn]);
-
+  
   const connectWallet = async () => {
     if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
       try {
@@ -62,9 +67,8 @@ const MainNavBar = () => {
       console.log("Please install MetaMask");
     }
   };
-
   return (
-    <div className="flex justify-center h-16 px-10 py-6 bg-white shadow-md border border-b-neutral-200  ">
+    <div className={`flex justify-center h-16 px-10 py-6 ${isDarkMode ? 'bg-black' : 'bg-white'} shadow-md border border-b-neutral-200`}>
       <div className="flex  items-center justify-between  w-full 2xl:max-w-6xl">
         <div className="flex items-center">
           <div className="mr-5">
@@ -81,6 +85,7 @@ const MainNavBar = () => {
             </p>
           </div>
         </div>
+
 
         {walletAddress && walletAddress.length > 0 ? (
           <div
@@ -100,6 +105,18 @@ const MainNavBar = () => {
           </div>
         )}
       </div>
+
+      <button
+        className="flex items-center px-5 py-1 rounded-md cursor-pointer"
+        onClick={toggleDarkMode}
+      >
+        {isDarkMode ? (
+          <img src={MoonIcon} alt="Moon" className="h-7 w-7" />
+        ) : (
+          <img src={SunIcon} alt="Sun" className="h-7 w-7" />
+        )}
+      </button>
+
     </div>
   );
 };
