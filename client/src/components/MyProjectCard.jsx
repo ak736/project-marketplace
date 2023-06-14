@@ -7,16 +7,16 @@ const MyProjectCard = ({title,image,category,techStack,price,id}) => {
 
 
   return (
-    <div className="max-w-[250px] bg-blue-50 p-2 rounded-md">
+    <div className="max-w-[250px] bg-blue-50 dark:bg-gray-800 p-2 rounded-md">
       <img
         src={image}
         alt="project"
         className="w-[250px] h-[150px] rounded-md object-cover"
       />
-      <p className="truncate font-medium mt-2">
+      <p className="truncate font-medium mt-2 dark:text-gray-300">
         {title}
       </p>
-      <p className="text-sm truncate">
+      <p className="text-sm truncate dark:text-gray-300">
         Category: <span className="font-semibold">{category}</span>
       </p>
       <div className="flex mt-2 gap-2">
@@ -26,7 +26,7 @@ const MyProjectCard = ({title,image,category,techStack,price,id}) => {
       </div>
       <div className="flex items-center justify-between mt-4">
         <div>
-          <p className="text-sm mt-2">
+          <p className="text-sm mt-2 dark:text-gray-300">
             Price: <span className="font-semibold text-lg">${price}</span>
           </p>
         </div>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import UserLogo from "../assets/user.png";
 import MetaMaskLogo from "../assets/l1.png";
+import Toggle from "./Toggle";
 
 const MainNavBar = () => {
   const [walletAddress, setWalletAddress] = useState("");
@@ -64,7 +65,7 @@ const MainNavBar = () => {
   };
 
   return (
-    <div className="flex justify-center h-16 px-10 py-6 bg-white shadow-md border border-b-neutral-200  ">
+    <div className="flex justify-center h-16 px-10 py-6 bg-white dark:bg-gray-800 shadow-md border-b-neutral-200  ">
       <div className="flex  items-center justify-between  w-full 2xl:max-w-6xl">
         <div className="flex items-center">
           <div className="mr-5">
@@ -72,7 +73,7 @@ const MainNavBar = () => {
           </div>
           <div className="flex flex-col justify-center items-center">
             {/* <p className="text-sm text-gray-400 ">FULL STACK DEVELOPER</p> */}
-            <p className="font-semibold md:text-[15px] text-[10px] mt-[-2px]">
+            <p className="font-semibold md:text-[15px] text-[10px] mt-[-2px] dark:text-gray-300">
               {walletAddress && walletAddress.length > 0
                 ? walletAddress.slice(0, 4) +
                   "...." +
@@ -88,18 +89,19 @@ const MainNavBar = () => {
             className="flex items-center gap-2 border-2 border-blue-300 shadow-md px-4 py-1 rounded-md cursor-pointer"
           >
             <img src={MetaMaskLogo} alt="" className="h-8 w-8" />
-            <p className="text-gray-500">Connected</p>
+            <p className="text-gray-500 dark:text-gray-300">Connected</p>
           </div>
         ) : (
           <div
             onClick={connectWallet}
-            className="flex items-center gap-2 bg-primary px-4 py-1 shadow-md rounded-md cursor-pointer"
+            className="flex items-center gap-2 bg-primary hover:bg-sky-300 hover:transition-colors ease-out duration-700 hover:shadow-blue-100 px-4 py-1 shadow-md rounded-md cursor-pointer"
           >
-            <p className="text-white">Login with </p>
+            <p className="text-white hover:transition-all hover:duration-500">Login with </p>
             <img src={MetaMaskLogo} alt="" className="h-8 w-8" />
           </div>
         )}
       </div>
+      <Toggle />
     </div>
   );
 };

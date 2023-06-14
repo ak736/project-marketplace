@@ -5,7 +5,7 @@ import MainLayout from "./layouts/Main.layout";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App bg-white">
       <MainLayout />
 
       <div className="flex-1 md:ml-[20%] mt-14 p-10 overflow-y-auto">

@@ -10,7 +10,7 @@ const OrdersPage = () => {
         <div className='flex justify-between'>
         
         </div>
-        <div>
+        <div className='dark:bg-gray-800 rounded-lg pb-5'>
           <OrderTable />
         </div>
     </>

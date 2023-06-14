@@ -11,7 +11,7 @@ const OrderTable = () => {
           {columns.map((column, index) => (
             <th
               key={`header-${index}`}
-              className="py-2 px-4 text-left font-medium text-gray-500"
+              className="py-2 px-4 text-left font-medium text-gray-500 dark:text-gray-300"
             >
               {column.header}
             </th>
@@ -24,7 +24,7 @@ const OrderTable = () => {
             {recentOrdersColumns.map((column, columnIndex) => (
               <td
                 key={`cell-${columnIndex}`}
-                className="border-b-2 border-gray-200 font-semibold py-4 px-2 md:px-4"
+                className="border-b-2 border-gray-200 dark:text-gray-500 font-semibold py-4 px-2 md:px-4"
               >
                 {column.accessorKey === "imageURL" && (
                   <img

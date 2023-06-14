@@ -4,13 +4,13 @@ import { sidebarConstant } from "../constants/sidebar";
 
 const Sidebar = ({ handleItemClick, activeItem }) => {
   return (
-    <div className="hidden md:flex flex-col justify-around w-[20%] mt-16 border bg-white border-r-neutral-200 fixed top-0 left-0 h-[95%] z-10">
+    <div className="hidden md:flex flex-col justify-around w-[20%] mt-16 border bg-white dark:bg-gray-800 border-r-neutral-200 fixed top-0 left-0 h-[95%] z-10">
       <div className="px-6 -mt-7 flex flex-col gap-4">
         {sidebarConstant.map((element) => (
           <Link
             to={element.path}
-            className={`flex items-center gap-2 py-4 px-2 rounded-lg pl-4 cursor-pointer hover:bg-gray-100 ${
-              activeItem === element.name && "bg-gray-100"
+            className={`flex items-center gap-2 py-4 px-2 rounded-lg pl-4 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-500 dark:text-gray-300 ${
+              activeItem === element.name && "bg-gray-100 dark:bg-gray-500"
             }`}
             onClick={() => handleItemClick(element.name)}
           >
