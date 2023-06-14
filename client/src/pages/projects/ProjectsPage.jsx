@@ -16,7 +16,7 @@ const ProjectsPage = () => {
 
   return (
     <div>
-       <h2 className='font-semibold text-lg'>Your Projects!</h2>
+       <h2 className='font-semibold text-3xl text-center'>Your Projects!</h2>
 
       <div className='flex flex-wrap items-center justify-evenly gap-6 mt-6 '>
         {projects?.map(project =>
