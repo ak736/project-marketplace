@@ -1,11 +1,15 @@
-# Project Marketplace 
-This is a freelance marketplace platform that allows users to buy and sell projects related to various domains. It is based on web3 login and crypto payment options, enabling secure and transparent transactions. 
+# Project Marketplace
+
+This is a freelance marketplace platform that allows users to buy and sell projects related to various domains. It is based on web3 login and crypto payment options, enabling secure and transparent transactions.
 
 ## Live Demo
+
 Check out the live demo of [Project Marketplace](https://the-project-marketplace.vercel.app/).
 
 ## Tech Stack
+
 This project is built using the MERN stack, which includes:
+
 - MongoDB for the database
 - Express and Node.js for the backend
 - React for the frontend
@@ -13,6 +17,7 @@ This project is built using the MERN stack, which includes:
 We used Spheron for deploying our backend and Vercel for deploying the frontend.
 
 ## Figma Design
+
 Link to our Figma design is [here](https://www.figma.com/file/6eaNLjWwNMfCRtBjQlPVvV/Hackverse?node-id=0%3A1&t=kf91LFDpRkVXgwCv-1).
 
 ## Pages
@@ -41,17 +46,35 @@ Link to our Figma design is [here](https://www.figma.com/file/6eaNLjWwNMfCRtBjQl
 
 <kbd> <img src="images/Metamask_Connected.png" alt="Metamask Connected" width="600" height="400"> </kbd>
 
-
 ## How to Clone and Run the Project
 
 To clone and run the project, follow these steps:
+
 1. Open your terminal and navigate to the directory where you want to store the project.
 2. Clone the repository using the following command: git clone [https://github.com/ak736/project-marketplace.git]
 3. Navigate to the project directory
 4. Install the necessary dependencies by running the following command in the root directory: npm install
 5. To start the frontend and backend servers concurrently, run the following command in the root directory:
-  - Frontend : npm run dev
-  - Backend : npm start
+
+- Frontend : npm run dev
+- Backend : npm start
+
+---
+
+## Additional Section On Running the Project on your localhost after cloning it
+
+_To run this project:_
+
+1. Fork the project and clone it on your device using Github Desktop or running the command: git clone [https://github.com/ak736/project-marketplace.git]
+2. Open your terminal
+3. Go to the client directory using the command: cd .\client\
+4. Run the command: npm run dev
+5. A message will be displayed: _VITE v4.2.1 ready in $ ms_
+6. Click on the _localhost link_ provided below.
+
+<img src="run.jpg" alt="running the project" width="600" height="400"> </kbd>
+
+---
 
 ## Contributing
 
