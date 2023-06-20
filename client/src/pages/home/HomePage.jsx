@@ -1,16 +1,22 @@
-import React, { useEffect } from "react";
+import React, { useEffect , useState} from "react";
 import ProjectCard from "../../components/ProjectCard";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllProjects } from "../../services/projects/ProjectSlice";
 import { BsSearch } from "react-icons/bs";
+import { useContext } from "react";
+import Navsidecontext from "../../context/Navsidecontext";
 const HomePage = () => {
   const projectList = useSelector((state) => state.project);
   const { loading, allProjects, error, page, pages } = projectList;
+  const {navhandle} = useContext(Navsidecontext);
   const dispatch = useDispatch()
   console.log(allProjects)
 
+  const [searchBar, setSearchBar] = useState("");
+
   useEffect(()=>{
     dispatch(getAllProjects())
+    navhandle();
   },[dispatch])
 
   return (
