@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import UserLogo from "../assets/user.png";
 import MetaMaskLogo from "../assets/l1.png";
+import Logo from  "C:\Users\dell\Desktop\project-marketplace\images\logo.jpg";
 
 const MainNavBar = () => {
   const [walletAddress, setWalletAddress] = useState("");
