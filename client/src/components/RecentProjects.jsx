@@ -5,7 +5,7 @@ import {MdOutlineAdd} from "react-icons/md"
 const RecentProjects = () => {
 
   return (
-    <div className='mt-10 border border-neutral-300 rounded-lg p-6'>
+    <div className='mt-10 border border-neutral-300 dark:text-gray-100 rounded-lg p-6'>
         <div className='flex justify-between'>
         <h2 className='font-semibold'>Recent Projects</h2>
         <h2 className='text-primary font-semibold cursor-pointer'>View all projects</h2>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import UserLogo from "../assets/user.png";
 import MetaMaskLogo from "../assets/l1.png";
+import DarkMode from "../components/DarkMode";
 
 const MainNavBar = () => {
   const [walletAddress, setWalletAddress] = useState("");
@@ -64,7 +65,7 @@ const MainNavBar = () => {
   };
 
   return (
-    <div className="flex justify-center h-16 px-10 py-6 bg-white shadow-md border border-b-neutral-200  ">
+    <div className="flex justify-center h-16 px-10 py-6 bg-white dark:bg-black  shadow-md border border-b-neutral-200  ">
       <div className="flex  items-center justify-between  w-full 2xl:max-w-6xl">
         <div className="flex items-center">
           <div className="mr-5">
@@ -72,7 +73,7 @@ const MainNavBar = () => {
           </div>
           <div className="flex flex-col justify-center items-center">
             {/* <p className="text-sm text-gray-400 ">FULL STACK DEVELOPER</p> */}
-            <p className="font-semibold md:text-[15px] text-[10px] mt-[-2px]">
+            <p className="font-semibold md:text-[15px] text-[10px] mt-[-2px]  dark:text-gray-100 ">
               {walletAddress && walletAddress.length > 0
                 ? walletAddress.slice(0, 4) +
                   "...." +
@@ -99,7 +100,8 @@ const MainNavBar = () => {
             <img src={MetaMaskLogo} alt="" className="h-8 w-8" />
           </div>
         )}
-      </div>
+        <DarkMode />
+      </div> 
     </div>
   );
 };

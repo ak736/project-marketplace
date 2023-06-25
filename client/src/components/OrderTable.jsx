@@ -24,7 +24,7 @@ const OrderTable = () => {
             {recentOrdersColumns.map((column, columnIndex) => (
               <td
                 key={`cell-${columnIndex}`}
-                className="border-b-2 border-gray-200 font-semibold py-4 px-2 md:px-4"
+                className="border-b-2 border-gray-200 dark:text-gray-100 font-semibold py-4 px-2 md:px-4"
               >
                 {column.accessorKey === "imageURL" && (
                   <img

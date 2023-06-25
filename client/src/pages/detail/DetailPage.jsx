@@ -21,7 +21,7 @@ const DetailPage = () => {
 
   return (
     <div>
-      <h2 className="truncate text-3xl font-bold mb-8">
+      <h2 className="truncate text-3xl font-bold mb-8 dark:text-gray-100">
         {projectInfo.title}
       </h2>
       <div className="flex flex-col md:flex-row items-start justify-between gap-6">
@@ -33,14 +33,14 @@ const DetailPage = () => {
         />
       </div>
         <div className="w-full">      
-      <p>
+      <p className="dark:text-gray-100">
         Category: <span className="font-semibold">{projectInfo.category}</span>
       </p>
-      <p className=" mt-3">
+      <p className=" mt-3 dark:text-gray-100">
         Ratings: <span className="font-semibold">{projectInfo.rating}/5.0</span>
       </p>
       <div className="flex  items-center mt-4 gap-2">
-        <p>Tech Stack:</p>
+        <p className="dark:text-gray-100">Tech Stack:</p>
         {projectInfo?.techStack?.split(',')?.map((tag) => (
           <p className=" bg-blue-100 px-2 rounded-md">{tag}</p>
         ))}
@@ -66,16 +66,16 @@ const DetailPage = () => {
       </div>
       </div>
       <hr className="my-5" />
-      <div>
+      <div className="dark:text-gray-100">
         <h3 className=" font-semibold mb-4">Description:</h3>
         <p>{projectInfo.description}</p>
       </div>
       <hr className="my-5" />
-      <div>
+      <div className="dark:text-gray-100">
         <h3 className=" font-semibold mb-2">Features:</h3>
         <ul>
           {projectInfo?.features?.map((feature,idx)=>
-          <div className="flex items-center gap-2 mb-1">
+          <div className="flex items-center gap-2 mb-1 ">
             <MdBolt />
             <li>{feature}</li>
           </div>
