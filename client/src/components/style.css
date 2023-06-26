@@ -1,0 +1,28 @@
+@media (max-width:455px){
+    *{
+        font-size: 0.9rem;
+    }
+}
+
+
+@media (max-width:385px){
+    *{
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width:325px){
+    *{
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width:267px){
+    *{
+        font-size: 0.6rem;
+    }
+}@media (max-width:210px){
+    *{
+        font-size: 0.5rem;
+    }
+}
