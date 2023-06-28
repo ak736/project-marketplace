@@ -19,6 +19,7 @@ const MainNavBar = () => {
         const accounts = await window.ethereum.request({
           method: "eth_requestAccounts",
         });
+        
         setWalletAddress(accounts[0]);
         setIsLoggedIn(true);
         console.log(accounts[0]);
