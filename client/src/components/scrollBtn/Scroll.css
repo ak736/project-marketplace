@@ -1,0 +1,29 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.wrapper .top__btn {
+  font-size: 2.4rem;
+  width: 3rem;
+  height: 3rem;
+  color: #fff;
+  background-color: #0d6efd;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 9999;
+  display: flex;
+  cursor: pointer;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper .top__btn .arrow__icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
