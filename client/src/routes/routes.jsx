@@ -6,8 +6,10 @@ import {
   CryptoWalletPage,
   ProjectsPage,
   OrdersPage,
-  DetailPage
+  DetailPage,
 } from "../pages";
+
+import Login from "../pages/login/Login";
 
 export const routes = [
   {
@@ -41,5 +43,9 @@ export const routes = [
   {
     path: "/landing",
     element: <LandingPage />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
   },
 ];

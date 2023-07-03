@@ -1,10 +1,19 @@
 import React, { useEffect, useState } from "react";
 import UserLogo from "../assets/user.png";
 import MetaMaskLogo from "../assets/l1.png";
+import { FcGoogle} from "react-icons/fc";
+import { useNavigate } from "react-router-dom";
 
 const MainNavBar = () => {
   const [walletAddress, setWalletAddress] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const navigate = useNavigate()
+
+
+  const handlelogin=()=>{
+    navigate('/login')
+  }
 
   useEffect(() => {
     getCurrentWalletConnected();
@@ -90,7 +99,7 @@ const MainNavBar = () => {
             <img src={MetaMaskLogo} alt="" className="h-8 w-8" />
             <p className="text-gray-500">Connected</p>
           </div>
-        ) : (
+        ) : (<>
           <div
             onClick={connectWallet}
             className="flex items-center gap-2 bg-primary px-4 py-1 shadow-md rounded-md cursor-pointer"
@@ -98,6 +107,8 @@ const MainNavBar = () => {
             <p className="text-white">Login with </p>
             <img src={MetaMaskLogo} alt="" className="h-8 w-8" />
           </div>
+          <a onClick={()=>handlelogin()} href="#" className="text-center hover:scale-105 transition-transform rounded-lg flex gap-2 text-lg border-2 w-fit p-2  "><FcGoogle className="mt-1"/> Login with Google</a>
+          </>
         )}
       </div>
     </div>
