@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import UserLogo from "../assets/user.png";
 import MetaMaskLogo from "../assets/l1.png";
+import ProjectMarketLogo from "../../public/favicon.ico";
 
 const MainNavBar = () => {
   const [walletAddress, setWalletAddress] = useState("");
@@ -12,12 +13,13 @@ const MainNavBar = () => {
   }, [walletAddress, isLoggedIn]);
 
   const connectWallet = async () => {
-    if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
+    if (typeof window !== "undefined" && typeof window.ethereum !== "undefined") {
       try {
         /* MetaMask is installed */
         const accounts = await window.ethereum.request({
           method: "eth_requestAccounts",
         });
+        
         setWalletAddress(accounts[0]);
         setIsLoggedIn(true);
         console.log(accounts[0]);
@@ -29,8 +31,9 @@ const MainNavBar = () => {
       console.log("Please install MetaMask");
     }
   };
+
   const getCurrentWalletConnected = async () => {
-    if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
+    if (typeof window !== "undefined" && typeof window.ethereum !== "undefined") {
       try {
         const accounts = await window.ethereum.request({
           method: "eth_accounts",
@@ -51,7 +54,7 @@ const MainNavBar = () => {
   };
 
   const addWalletListener = async () => {
-    if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
+    if (typeof window !== "undefined" && typeof window.ethereum !== "undefined") {
       window.ethereum.on("accountsChanged", (accounts) => {
         setWalletAddress(accounts[0]);
         console.log(accounts[0]);
@@ -64,8 +67,8 @@ const MainNavBar = () => {
   };
 
   return (
-    <div className="flex justify-center h-16 px-10 py-6 bg-white shadow-md border border-b-neutral-200  ">
-      <div className="flex  items-center justify-between  w-full 2xl:max-w-6xl">
+    <div className="flex justify-center h-16 px-10 py-6 bg-white shadow-md border border-b-neutral-200">
+      <div className="flex items-center justify-between w-full 2xl:max-w-6xl">
         <div className="flex items-center">
           <div className="mr-5">
             <img src={UserLogo} className="h-10 w-10" alt="" />
@@ -74,12 +77,15 @@ const MainNavBar = () => {
             {/* <p className="text-sm text-gray-400 ">FULL STACK DEVELOPER</p> */}
             <p className="font-semibold md:text-[15px] text-[10px] mt-[-2px]">
               {walletAddress && walletAddress.length > 0
-                ? walletAddress.slice(0, 4) +
-                  "...." +
-                  walletAddress.slice(38, 42)
+                ? walletAddress.slice(0, 4) + "...." + walletAddress.slice(38, 42)
                 : "Guest User"}
             </p>
           </div>
+        </div>
+
+        <div className="flex items-center justify-center">
+          <img src={ProjectMarketLogo} className="h-8 w-8 md:h-10 md:w-10 mr-2" alt="" />
+          <h1 className="text-xl md:text-2xl font-semibold">Project Market</h1>
         </div>
 
         {walletAddress && walletAddress.length > 0 ? (
