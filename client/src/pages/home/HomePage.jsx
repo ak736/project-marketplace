@@ -18,7 +18,7 @@ const HomePage = () => {
     <div>
       <div className="flex flex-wrap items-center justify-between">
         <div className="pl-4">
-          <h2 className="font-semibold text-lg">Welcome to ProjectMart!</h2>
+          <h2 className="font-semibold text-lg dark:text-gray-100">Welcome to ProjectMart!</h2>
           <p className="text-sm text-gray-500">Browse the projects</p>
         </div>
         <div class="search-wrapper w-1/4 pr-4">
