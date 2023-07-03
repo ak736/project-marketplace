@@ -1,6 +1,6 @@
 import React from 'react'
 import OrderTable from './OrderTable'
-
+import './style.css'
 
 const RecentOrders = () => {
 
