@@ -1,5 +1,6 @@
 import asyncHandler from 'express-async-handler'
 import Project from '../models/projectModel.js'
+import { projectCreateSchema, projectUpdateSchema, reviewUpdateSchema } from '../validation/projectValidation.js';
 
 //@desc fetch all the products
 //@route GET /api/products
@@ -30,7 +31,7 @@ const getProjectById = asyncHandler(async (req, res) => {
 //@access public
 
 const getProjectByUser = asyncHandler(async (req, res) => {
-  const project = await Project.find({user:req.params.id})
+  const project = await Project.find({ user: req.params.id })
 
   if (project) {
     res.json(project)
@@ -58,42 +59,50 @@ const deleteProject = asyncHandler(async (req, res) => {
 // @route POST /api/products/
 // @access Private/Admin
 const createProject = asyncHandler(async (req, res) => {
-  const project = new Project({
-    name: "Sample name",
-    price: 0,
-    user: req.user._id,
-    image: "/images/sample.jpg",
-    brand: "Sample Brand",
-    category: "Sample Category",
-    countInStock: 0,
-    numReviews: 0,
-    description: "Sample description",
-  });
-  const createdProject = await project.save();
-  res.status(201).json(createdProject);
+  const payload = await projectCreateSchema.validateAsync(req.body);
+  if (!payload.error) {
+    const { name, price, user, image, brand, category, countInStock, numReviews, description, title, techStack } = payload
+    const project = new Project({
+      name,
+      price,
+      user,
+      image,
+      brand,
+      category,
+      countInStock,
+      numReviews,
+      description,
+      title,
+      techStack
+    });
+    const createdProject = await project.save();
+    res.status(201).json(createdProject);
+  }
 });
 
 // @desc Update a product
 // @route PUT /api/products/
 // @access Private/Admin
 const updateProject = asyncHandler(async (req, res) => {
-  const { name, price, description, image, brand, category, countInStock } =
-    req.body;
-  const project = await Product.findById(req.params.id);
-  if (project) {
-    project.name = name;
-    project.price = price;
-    project.description = description;
-    project.image = image;
-    project.category = category;
-    project.brand = brand;
-    project.countInStock = countInStock;
+  const payload = await projectUpdateSchema.validateAsync(req.body);
+  if (!payload.error) {
+    const { name, price, description, image, brand, category, countInStock } = payload;
+    const project = await Product.findById(req.params.id);
+    if (project) {
+      project.name = name;
+      project.price = price;
+      project.description = description;
+      project.image = image;
+      project.category = category;
+      project.brand = brand;
+      project.countInStock = countInStock;
 
-    const updatedProject = await project.save();
-    res.json(updatedProject);
-  } else {
-    res.status(404);
-    throw new Error("Product not found");
+      const updatedProject = await project.save();
+      res.json(updatedProject);
+    } else {
+      res.status(404);
+      throw new Error("Product not found");
+    }
   }
 });
 
@@ -102,33 +111,34 @@ const updateProject = asyncHandler(async (req, res) => {
 // @access Private
 
 const createProjectReview = asyncHandler(async (req, res) => {
-  const { rating,comment } =
-    req.body;
-  const project = await Project.findById(req.params.id);
-  if (project) {
-    const alreadyReviewed = project.reviews.find(r=>r.user.toString()===req.user._id.toString())
-    if(alreadyReviewed){
-      res.status(400)
-      throw new Error("Product already reviewed")
-    }
-    const review = {
-      name:req.user.name,
-      rating:Number(rating),
-      comment,
-      user:req.user._id
-    }
+  const payload = await reviewUpdateSchema.validateAsync(req.body);
+  if (!payload.error) {
+    const { rating, comment } = payload;
+    const project = await Project.findById(req.params.id);
+    if (project) {
+      const alreadyReviewed = project.reviews.find(r => r.user.toString() === req.user._id.toString())
+      if (alreadyReviewed) {
+        res.status(400)
+        throw new Error("Product already reviewed")
+      }
+      const review = {
+        name: req.user.name,
+        rating: rating,
+        comment,
+        user: req.user._id
+      }
 
-    project.reviews.push(review)
-    project.numReviews=project.reviews.length;
-    project.rating = project.reviews.reduce((acc,item)=>item.rating+acc,0)/project.reviews.length;
-    await project.save()
-    res.status(201).json({message:"Review added successfully"})
-  } else {
-    res.status(404);
-    throw new Error("Project not found");
+      project.reviews.push(review)
+      project.numReviews = project.reviews.length;
+      project.rating = project.reviews.reduce((acc, item) => item.rating + acc, 0) / project.reviews.length;
+      await project.save()
+      res.status(201).json({ message: "Review added successfully" })
+    } else {
+      res.status(404);
+      throw new Error("Project not found");
+    }
   }
 });
-
 
 export {
   getProjectById,
