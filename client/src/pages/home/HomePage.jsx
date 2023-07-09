@@ -7,6 +7,7 @@ const HomePage = () => {
   const projectList = useSelector((state) => state.project);
   const { loading, allProjects, error, page, pages } = projectList;
   const [searchBar, setSearchBar] = React.useState("");
+  const [filter, setFilter] = React.useState("title");
   const dispatch = useDispatch();
   console.log(allProjects);
 
@@ -23,6 +24,14 @@ const HomePage = () => {
         </div>
         <div class="search-wrapper w-1/4 pr-4">
           <div class="search w-full relative flex items-center">
+            <select defaultValue={"title"} style={{marginRight: 20, borderRadius: 10, backgroundColor: "#6a9fff"}} onChange={(e)=>{
+              setFilter(e.target.value);
+              console.log(filter);
+            }}>
+              <option value="title">Search by Title</option>
+              <option value="category">Search by category</option>
+              <option value="tag">Search by tags</option>
+            </select>
             <input
               type="text"
               class="w-full p-1 h-full rounded text-gray-500"
@@ -56,10 +65,42 @@ const HomePage = () => {
               price={project.price}
             />
           ))}
-        {searchBar !== "" &&
+        {searchBar !== "" && filter == "title" &&
           allProjects
             ?.filter((project) =>
               project.title.toLowerCase().includes(searchBar.toLowerCase())
+            )
+            .map((project) => (
+              <ProjectCard
+                key={project._id}
+                id={project._id}
+                title={project.title}
+                image={project.image}
+                techStack={project.techStack}
+                category={project.category}
+                price={project.price}
+              />
+            ))}
+        {searchBar !== "" && filter == "category" &&
+          allProjects
+            ?.filter((project) =>
+              project.category.toLowerCase().includes(searchBar.toLowerCase())
+            )
+            .map((project) => (
+              <ProjectCard
+                key={project._id}
+                id={project._id}
+                title={project.title}
+                image={project.image}
+                techStack={project.techStack}
+                category={project.category}
+                price={project.price}
+              />
+            ))}
+        {searchBar !== "" && filter == "tag" &&
+          allProjects
+            ?.filter((project) =>
+              project.techStack.toLowerCase().includes(searchBar.toLowerCase())
             )
             .map((project) => (
               <ProjectCard
