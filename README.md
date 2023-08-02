@@ -1,6 +1,22 @@
 # Project Marketplace 
 This is a freelance marketplace platform that allows users to buy and sell projects related to various domains. It is based on web3 login and crypto payment options, enabling secure and transparent transactions. 
 
+## Table of Content
+
+- [Live Demo](#Live-Demo)
+- [Tech Stack](#Tech-Stack)
+- [Figma Design](#Figma-Design)
+- [Pages](#Pages)
+- [Home Screen](#Home-Screen)
+- [Dashboard](#Dashboard)
+- [Projects](#Projects)
+- [Project Details](#Project-Details)
+- [Orders](#Orders)
+- [Metamask Connected](#Metamask-Connected)
+- [How to Clone and Run the Project](#How-to-Clone-and-Run-the-Project)
+- [Contributing](#Contributing)
+- [Credits](#credits)
+  
 ## Live Demo
 Check out the live demo of [Project Marketplace](https://the-project-marketplace.vercel.app/).
 
